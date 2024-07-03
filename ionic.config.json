@@ -1,0 +1,7 @@
+{
+  "name": "akadaj",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
