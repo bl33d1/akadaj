@@ -1,6 +1,14 @@
 <div>
   <h1>Geolocation Example</h1>
-  <button (click)="getLocation()">Get Location</button>
+  <div class="row">
+    <div class="col">
+      <ion-button style="display: inline; width: 80%;" fill="outline" [disabled]="isDisabled" (click)="getLocation()">Get Location</ion-button>
+    </div>
+    <div class="col">
+<h1>10</h1>
+    </div>
+  </div>
+  <p style="width: 20%;">10</p>
   <p>{{status}}</p>
   <p>{{location}}</p>
 </div>
