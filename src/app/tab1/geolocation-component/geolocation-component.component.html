@@ -1,14 +1,46 @@
-<div>
-  <h1>Geolocation Example</h1>
+<div class="container">
   <div class="row">
     <div class="col">
-      <ion-button style="display: inline; width: 80%;" fill="outline" [disabled]="isDisabled" (click)="getLocation()">Get Location</ion-button>
+      <ion-button style="display: inline; width: 80%; height: 50%;" fill="outline" 
+        (click)="getLocation()">Get Location</ion-button>
     </div>
-    <div class="col">
-<h1>10</h1>
+    <div class="col-2 pt-5">
+      @for (item of pings$ | async; track $index;let idx = $count) {
+        @if ($last) {
+          <p style="width: 20%;"> {{idx}} </p>
+        }
+      }
     </div>
   </div>
-  <p style="width: 20%;">10</p>
-  <p>{{status}}</p>
-  <p>{{location}}</p>
+  <div class="row mt-5">
+    <div class="col">
+      <!-- <iframe frameborder=0 style='width:100%;height:500px' src='//www.zeemaps.com/pub?group=5076499&simpleadd=1&x=20.961288&y=42.586368&z=9'> </iframe> -->
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col">
+      <table>
+        <thead>
+          <th>ID</th>
+          <th>City</th>
+          <th>Coords</th>
+          <th>CreatedOn</th>
+        </thead>
+        <tbody >
+          @for (item of pings$ | async; track item;let count = $count;let inx = $index) {
+          <tr>
+            <td>{{inx+1}}</td>
+            <td>{{item.latitude}}</td>
+            <td>{{item.longitude}}</td>
+            <td>{{item.createdOn.split('T')[0] + '  ' + item.createdOn.split('T')[1].substr(0,8)}}</td>
+            <td><ion-button size="small" type="outline" (click)=" deleteRecord(item.id!)">X</ion-button></td>
+          </tr>
+        }@empty {
+          <li>There are no items.</li>
+        }
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
+
