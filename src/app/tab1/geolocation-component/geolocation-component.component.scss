@@ -1,3 +1,14 @@
 tbody > tr > td {
   padding-right: 20px;
 }
+
+.marker {
+  width: 20px;
+  height: 20px;
+  background-color: red; /* Marker color */
+  border-radius: 50%; /* Make the marker a circle */
+  border: 2px solid white; /* Optional: adds a white border around the marker */
+  position: absolute;
+  transform: translate(-50%, -50%); /* Center the marker */
+  pointer-events: none; /* Prevent marker from intercepting mouse events */
+}

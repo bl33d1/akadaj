@@ -12,8 +12,22 @@
       }
     </div>
   </div>
-  <div class="row mt-5">
-    <div class="col">
+  <div class="row mt-5" style="position: relative;">
+    <div class="col" style="position: relative;">
+      <img src="assets/ks.png" width="400px" height="400px">
+      @for (item of pings$ | async; track $index) {
+        <div
+       [ngStyle]="{ 
+         'position': 'absolute', 
+         'left.px': getPixelCoordinates(item.latitude,item.longitude).x, 
+         'top.px': getPixelCoordinates(item.latitude,item.longitude).y 
+       }"
+       class="marker">
+    <!-- Marker or Point content here -->
+  </div>
+        
+      }
+
       <!-- <iframe frameborder=0 style='width:100%;height:500px' src='//www.zeemaps.com/pub?group=5076499&simpleadd=1&x=20.961288&y=42.586368&z=9'> </iframe> -->
     </div>
   </div>
