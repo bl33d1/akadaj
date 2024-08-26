@@ -11,7 +11,7 @@ import { addDoc, collection, collectionData, CollectionReference, deleteDoc, doc
   templateUrl: './geolocation-component.component.html',
   styleUrls: ['./geolocation-component.component.scss'],
   standalone: true,
-  imports: [IonButton, HttpClientModule, AsyncPipe, NgStyle],
+  imports: [IonButton, HttpClientModule, AsyncPipe, NgStyle, ],
   providers: []
 })
 export class GeolocationComponentComponent implements OnInit {
@@ -28,6 +28,9 @@ export class GeolocationComponentComponent implements OnInit {
 
   }
 
+  // checkForAdmin(){
+  //   return window.location.href.includes('blediardi');
+  // }
   addUserProfile(ping: Ping) {
     if (!ping) return;
 
@@ -81,7 +84,9 @@ export class GeolocationComponentComponent implements OnInit {
               longitude: '' + longitudeWeb
             })
           });
-        } 
+        } else{
+          alert("App needs location service active to work!");
+        }
     } 
 
     deleteRecord(latatideLongtitude: string) {
